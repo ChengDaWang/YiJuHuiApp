@@ -10,7 +10,10 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class RegisterActivity extends AppCompatActivity{
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
+public class RegisterActivity extends AppCompatActivity {
     /**
      * 声明DBOpenHelper 对象，目的---创建数据表，并对数据表进行操作
      */
@@ -57,8 +60,26 @@ public class RegisterActivity extends AppCompatActivity{
 
                 if(passWord.equals(passWord1)){
                     if(passWord.length()>=6 && passWord.length()<=10) {
-                        //将用户名和密码加入到数据库中
-                        mDBOpenHelper.add(userName, passWord);
+                        //将密码进行加密算法，采用MD5加密法
+                        MessageDigest md5 = null;
+                        try {
+                            md5 = MessageDigest.getInstance("MD5");
+                            byte[] bytes = md5.digest(passWord.getBytes());
+                            String result = "";
+                            for (byte b : bytes) {
+                                String temp = Integer.toHexString(b & 0xff);
+                                if (temp.length() == 1) {
+                                    temp = "0" + temp;
+                                }
+                                result += temp;
+                                passWord=result;//这里密码已经加密完成
+                            }
+                            //将用户名和经过加密处理的密码存储到数据库中
+                            mDBOpenHelper.add(userName, passWord);
+                        } catch (NoSuchAlgorithmException e) {
+                            e.printStackTrace();
+                        }
+
                         Intent intent2 = new Intent(this, LoginActivity.class);
                         startActivity(intent2);
                         finish();
@@ -73,6 +94,7 @@ public class RegisterActivity extends AppCompatActivity{
                 Toast.makeText(this,  "您有信息未填写完整，请重新输入", Toast.LENGTH_SHORT).show();
             }
         }
+
     }
 
 

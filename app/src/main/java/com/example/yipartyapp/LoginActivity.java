@@ -9,6 +9,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
 public class LoginActivity extends AppCompatActivity {
@@ -53,6 +55,27 @@ public class LoginActivity extends AppCompatActivity {
         //先进行基础的内容非空判断
         if(!TextUtils.isEmpty(userName) && !TextUtils.isEmpty(passWord)){
             ArrayList<User> data=mDBOpenHelper.getAllData();//将数据库的值全部取出存放到data中
+            /**
+             * 因为MD5是不可逆加密，所以无法将输入的密码和数据库中存储的密码直接匹配
+             * 再加上我没有封装加密方法，所以为了方便就重写MD5算法再一次加密，再匹配
+             */
+            MessageDigest md5 = null;
+            try {
+                md5 = MessageDigest.getInstance("MD5");
+                byte[] bytes = md5.digest(passWord.getBytes());
+                String result = "";
+                for (byte b : bytes) {
+                    String temp = Integer.toHexString(b & 0xff);
+                    if (temp.length() == 1) {
+                        temp = "0" + temp;
+                    }
+                    result += temp;
+                    passWord=result;//这里密码已经加密完成
+                }
+
+            } catch (NoSuchAlgorithmException e) {
+                e.printStackTrace();
+            }
             boolean match=false;//设定一个判断标记
             //遍历data
             for(int i=0;i < data.size();i++){
