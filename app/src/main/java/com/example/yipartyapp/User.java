@@ -10,9 +10,23 @@ public class User {
      */
     private String passWord;
 
-    public User(String userName, String passWord) {
+    /**
+     *新用户标记
+     */
+    private String newUserFlag;
+
+    public User(String userName, String passWord,String newUserFlag) {
         this.userName = userName;
         this.passWord = passWord;
+        this.newUserFlag=newUserFlag;
+    }
+
+    public String getNewUserFlag() {
+        return newUserFlag;
+    }
+
+    public void setNewUserFlag(String newUserFlag) {
+        this.newUserFlag = newUserFlag;
     }
 
     public String getUserName() {
@@ -40,6 +54,7 @@ public class User {
         return "User{" +
                 "userName='" + userName + '\'' +
                 ", passWord='" + passWord + '\'' +
+                ", newUserFlag='" + newUserFlag + '\'' +
                 '}';
     }
 }

@@ -74,8 +74,10 @@ public class RegisterActivity extends AppCompatActivity {
                                 result += temp;
                                 passWord=result;//这里密码已经加密完成
                             }
+                            //新用户标记注入
+                            String newUserFlag="yes";
                             //将用户名和经过加密处理的密码存储到数据库中
-                            mDBOpenHelper.add(userName, passWord);
+                            mDBOpenHelper.add(userName, passWord,newUserFlag);
                         } catch (NoSuchAlgorithmException e) {
                             e.printStackTrace();
                         }

@@ -26,7 +26,9 @@ public class DBOpenHelper extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE IF NOT EXISTS user(" +
                 " _id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 " userName TEXT," +
-                " passWord TEXT)");
+                " passWord TEXT," +
+                " newUserFlag TEXT)"
+                  );
     }
 
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
@@ -39,8 +41,8 @@ public class DBOpenHelper extends SQLiteOpenHelper {
      * @param userName
      * @param passWord
      */
-    public void add(String userName,String passWord){
-        db.execSQL("INSERT INTO user (userName,passWord) VALUES(?,?)",new Object[]{userName,passWord});
+    public void add(String userName, String passWord,String newUserFlag){
+        db.execSQL("INSERT INTO user (userName,passWord,newUserFlag) VALUES(?,?,?)",new Object[]{userName,passWord,newUserFlag});
     }
 
     /**
@@ -69,7 +71,8 @@ public class DBOpenHelper extends SQLiteOpenHelper {
         while(cursor.moveToNext()){
             String userName = cursor.getString(cursor.getColumnIndex("userName"));
             String passWord = cursor.getString(cursor.getColumnIndex("passWord"));
-            list.add(new User(userName,passWord));
+            String newUserFlag = cursor.getString(cursor.getColumnIndex("newUserFlag"));
+            list.add(new User(userName,passWord,newUserFlag));
         }
         return list;
     }
