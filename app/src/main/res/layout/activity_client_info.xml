@@ -73,20 +73,21 @@
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:onClick="onclick"
                 android:text="出生日期："
                 android:textColor="#E90C0C0C"
                 android:textSize="15dp"
                 android:textStyle="bold"
                 tools:ignore="OnClick" />
 
-            <EditText
+            <TextView
                 android:id="@+id/bornData"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="请选择出生日期"
-                android:inputType="date" />
+                android:clickable="true"
+                android:text="请输入出生日期"
+                android:onClick="onClick"
+                android:textStyle="bold"
+                android:textSize="15dp"/>
 
         </TableRow>
 
@@ -94,11 +95,29 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" >
 
-            <Button
-                android:id="@+id/button3"
+            <TextView
+                android:id="@+id/textView11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Button" />
+                android:gravity="center"
+                android:text="家        乡："
+                android:textColor="#E90C0C0C"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/bornAdress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:onClick="onClick"
+                android:text="请选择您的家乡"
+                android:textStyle="bold"
+                android:textSize="15dp"/>
         </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
     </TableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
