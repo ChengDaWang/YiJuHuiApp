@@ -15,6 +15,7 @@ public class User {
      */
     private String newUserFlag;
 
+
     public User(String userName, String passWord,String newUserFlag) {
         this.userName = userName;
         this.passWord = passWord;

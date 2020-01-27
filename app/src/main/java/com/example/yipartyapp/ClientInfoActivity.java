@@ -1,15 +1,22 @@
 package com.example.yipartyapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.provider.ContactsContract;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,10 +34,13 @@ import com.google.gson.Gson;
 
 import org.json.JSONArray;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ClientInfoActivity extends AppCompatActivity implements View.OnClickListener{
     private TextView textView;//时间
@@ -39,14 +49,21 @@ public class ClientInfoActivity extends AppCompatActivity implements View.OnClic
     private OptionsPickerView pvOptions;//地址
     private OptionsPickerView pvOptions1;//学校
     private TimePickerView pvTime;
-    //private static Boolean goFalg=false;//地址选择器加载与否判断标记
+    private EditText clientName;//真实姓名
+    private MyDialog mMyDialog;
+    private DBOpenHelper mDBOpenHelper;
+    private Spinner gender1;
+    private String gender;
+    private String homeTown;
 
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_client_info);
 
+        mDBOpenHelper = new DBOpenHelper(this);
         /**
          * 时间选择
          */
@@ -66,10 +83,21 @@ public class ClientInfoActivity extends AppCompatActivity implements View.OnClic
             initTimePicker();//时间选择
             initCityPicker();//地址选择
             initSchoolPicker();//学校选择
+        /**
+         * 真实姓名校验—设值
+         */
+        clientName=findViewById(R.id.clientName);
+        /**
+         * 获取Spinner中的当前值
+         */
+        gender1=(Spinner)findViewById(R.id.gender);
+        gender = (String) gender1.getSelectedItem();
+
     }
-
-
-
+    /**
+     * 点击事件
+     * @param view
+     */
     @Override
     public void onClick(View view) {
         switch (view.getId()){
@@ -215,14 +243,6 @@ public class ClientInfoActivity extends AppCompatActivity implements View.OnClic
                 String cityName = jsonBean.get(i).getCityList().get(c).getName();
                 cityList.add(cityName);//添加城市
                 ArrayList<String> city_AreaList = new ArrayList<>();//该城市的所有地区列表
-
-                //如果无地区数据，建议添加空字符串，防止数据为null 导致三个选项长度不匹配造成崩溃
-                /*if (jsonBean.get(i).getCityList().get(c).getArea() == null
-                        || jsonBean.get(i).getCityList().get(c).getArea().size() == 0) {
-                    city_AreaList.add("");
-                } else {
-                    city_AreaList.addAll(jsonBean.get(i).getCityList().get(c).getArea());
-                }*/
                 city_AreaList.addAll(jsonBean.get(i).getCityList().get(c).getArea());
                 province_AreaList.add(city_AreaList);//添加该省所有地区数据
             }
@@ -272,15 +292,7 @@ public class ClientInfoActivity extends AppCompatActivity implements View.OnClic
             for (int c = 0; c < schoolJsonBean.get(i).getCities().size(); c++) {//遍历该省份的所有城市
                 String cityName = schoolJsonBean.get(i).getCities().get(c).getCity_name();
                 cityList.add(cityName);//添加城市
-                ArrayList<String> city_AreaList = new ArrayList<>();//该城市的所有地区列表
-
-                //如果无地区数据，建议添加空字符串，防止数据为null 导致三个选项长度不匹配造成崩溃
-                /*if (jsonBean.get(i).getCityList().get(c).getArea() == null
-                        || jsonBean.get(i).getCityList().get(c).getArea().size() == 0) {
-                    city_AreaList.add("");
-                } else {
-                    city_AreaList.addAll(jsonBean.get(i).getCityList().get(c).getArea());
-                }*/
+                ArrayList<String> city_AreaList = new ArrayList<>();
                 city_AreaList.addAll(schoolJsonBean.get(i).getCities().get(c).getUniversities());
                 province_AreaList.add(city_AreaList);//添加该省所有地区数据
             }
@@ -339,6 +351,53 @@ public class ClientInfoActivity extends AppCompatActivity implements View.OnClic
                 .setSubmitText("确定")//确认按钮文字
                 .build();
         pvOptions1.setPicker(options1Items1, options2Items1, options3Items1);//三级选择器
+    }
 
+    /**
+     * 点击“确认提交”按钮事件
+     * 校验用户输入的数据，并入库
+     */
+    public void Check(View view) throws ParseException {
+        String realName=clientName.getText().toString().trim();
+        String gender= (String) gender1.getSelectedItem();
+        String bornData=textView.getText().toString().trim();
+        String homeTown=textView1.getText().toString().trim();
+        String school=textView2.getText().toString().trim();
+        String regEx ="^[\\u0391-\\uFFE5]{2,5}";//正则表达式，规则（仅限汉字，并且长度只能为2-5个汉字）
+        Pattern pattern = Pattern.compile(regEx);//
+        Matcher matcher = pattern.matcher(realName);
+        boolean rs = matcher.matches();
+        //获取当前时间
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        Date bornData1 = format.parse(bornData);
+        Date date = new Date(System.currentTimeMillis());
+        //String currData=format.format(date);
+        if(homeTown.equals("请选择您的家乡") && school.equals("请选择您的大学")){
+            view = getLayoutInflater().inflate(R.layout.dialog_layout, null);
+            mMyDialog = new MyDialog(this, 0, 0, view, R.style.DialogTheme);
+            mMyDialog.setCancelable(true);
+            mMyDialog.show();
+        }
+        if(TextUtils.isEmpty(bornData) || bornData1.getTime() > date.getTime()){
+            view = getLayoutInflater().inflate(R.layout.dialog_layout, null);
+            mMyDialog = new MyDialog(this, 0, 0, view, R.style.DialogTheme);
+            mMyDialog.setCancelable(true);
+            mMyDialog.show();
+        }
+        if(rs==false){
+            view = getLayoutInflater().inflate(R.layout.dialog_layout, null);
+            mMyDialog = new MyDialog(this, 0, 0, view, R.style.DialogTheme);
+            mMyDialog.setCancelable(true);
+            mMyDialog.show();
+        }else{
+            mDBOpenHelper.addRealName(realName,gender,bornData,homeTown,school);
+        }
+    }
+    /**
+     * 弹窗关闭
+     * @param view
+     */
+    public void close(View view){
+        mMyDialog.cancel();
     }
 }

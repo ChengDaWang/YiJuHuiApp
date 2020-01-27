@@ -27,7 +27,12 @@ public class DBOpenHelper extends SQLiteOpenHelper {
                 " _id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 " userName TEXT," +
                 " passWord TEXT," +
-                " newUserFlag TEXT)"
+                " newUserFlag TEXT," +
+                " realName TEXT," +
+                " gender TEXT," +
+                " bornData TEXT," +
+                " homeTown TEXT," +
+                " school TEXT)"
                   );
     }
 
@@ -44,7 +49,12 @@ public class DBOpenHelper extends SQLiteOpenHelper {
     public void add(String userName, String passWord,String newUserFlag){
         db.execSQL("INSERT INTO user (userName,passWord,newUserFlag) VALUES(?,?,?)",new Object[]{userName,passWord,newUserFlag});
     }
-
+    /**
+     * 添加真实姓名
+     */
+    public void addRealName(String realName,String gender,String bornData,String homeTown,String school){
+        db.execSQL("INSERT INTO user (realName,gender,bornData,homeTown,school) VALUES(?,?,?,?,?)",new Object[]{realName,gender,bornData,homeTown,school});
+    }
     /**
      * 数据库删除数据
      * @param userName
