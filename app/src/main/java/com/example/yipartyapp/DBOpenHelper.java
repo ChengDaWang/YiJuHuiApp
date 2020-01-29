@@ -65,11 +65,11 @@ public class DBOpenHelper extends SQLiteOpenHelper {
     }
 
     /**
-     * 数据库更新数据（场景：用户修改密码）
-     * @param passWord
+     * 数据库更新数据（场景：更新用户标记）
+     * @param newUserFlag
      */
-    public void updata(String passWord){
-        db.execSQL("UPDATE user SET passWord = ?",new Object[]{passWord});
+    public void updata(String newUserFlag){
+        db.execSQL("UPDATE user SET newUserFlag = ?",new Object[]{newUserFlag});
     }
     /**
      * 全库查询数据

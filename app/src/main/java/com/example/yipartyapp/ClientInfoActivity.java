@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.provider.ContactsContract;
@@ -364,33 +365,34 @@ public class ClientInfoActivity extends AppCompatActivity implements View.OnClic
         String homeTown=textView1.getText().toString().trim();
         String school=textView2.getText().toString().trim();
         String regEx ="^[\\u0391-\\uFFE5]{2,5}";//正则表达式，规则（仅限汉字，并且长度只能为2-5个汉字）
+        String newUserFlag="no";//成功执行过此注册方法后的用户将被更新为老用户
         Pattern pattern = Pattern.compile(regEx);//
         Matcher matcher = pattern.matcher(realName);
         boolean rs = matcher.matches();
         //获取当前时间
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        Date bornData1 = format.parse(bornData);
-        Date date = new Date(System.currentTimeMillis());
+        if(!bornData.equals("请输入出生日期")){
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+            Date bornData1 = format.parse(bornData);
+            Date date = new Date(System.currentTimeMillis());
+
         //String currData=format.format(date);
-        if(homeTown.equals("请选择您的家乡") && school.equals("请选择您的大学")){
-            view = getLayoutInflater().inflate(R.layout.dialog_layout, null);
-            mMyDialog = new MyDialog(this, 0, 0, view, R.style.DialogTheme);
-            mMyDialog.setCancelable(true);
-            mMyDialog.show();
-        }
-        if(TextUtils.isEmpty(bornData) || bornData1.getTime() > date.getTime()){
-            view = getLayoutInflater().inflate(R.layout.dialog_layout, null);
-            mMyDialog = new MyDialog(this, 0, 0, view, R.style.DialogTheme);
-            mMyDialog.setCancelable(true);
-            mMyDialog.show();
-        }
-        if(rs==false){
+        if((homeTown.equals("请选择您的家乡") && school.equals("请选择您的大学")) ||(TextUtils.isEmpty(bornData) || bornData1.getTime() > date.getTime()) || (rs==false)){
             view = getLayoutInflater().inflate(R.layout.dialog_layout, null);
             mMyDialog = new MyDialog(this, 0, 0, view, R.style.DialogTheme);
             mMyDialog.setCancelable(true);
             mMyDialog.show();
         }else{
             mDBOpenHelper.addRealName(realName,gender,bornData,homeTown,school);
+            mDBOpenHelper.updata(newUserFlag);
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
+    }else {
+            view = getLayoutInflater().inflate(R.layout.dialog_layout, null);
+            mMyDialog = new MyDialog(this, 0, 0, view, R.style.DialogTheme);
+            mMyDialog.setCancelable(true);
+            mMyDialog.show();
         }
     }
     /**

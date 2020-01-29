@@ -82,19 +82,26 @@ public class LoginActivity extends AppCompatActivity {
                 User user=data.get(i);
                 if(userName.equals(user.getUserName()) && passWord.equals(user.getPassWord())){
                     match=true;//验证正确，给定标记为true
+                    if(match){
+                        Toast.makeText(this, "登录成功", Toast.LENGTH_SHORT).show();
+                        if(user.getNewUserFlag().equals("yes")){
+                            Intent intent = new Intent(this, ClientInfoActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }else {
+                            Intent intent = new Intent(this, MainActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
+                    }
                     break;
                 }else {
                     match=false;
                     break;
                 }
             }
-            if(match){
-                Toast.makeText(this, "登录成功", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(this, ClientInfoActivity.class);
-                startActivity(intent);
-                finish();//销毁此Activity
-            } else {
-                Toast.makeText(this, "用户名或密码不正确，请重新输入", Toast.LENGTH_SHORT).show();
+            if(match==false){
+                Toast.makeText(this, "用户名或密码错误", Toast.LENGTH_SHORT).show();
             }
         }else{
             Toast.makeText(this, "用户名或密码不能为空", Toast.LENGTH_SHORT).show();
