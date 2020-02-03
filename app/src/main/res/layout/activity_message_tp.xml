@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".core.MessageTP" >
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="66dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:background="#FFC0CB"
+            android:layout_height="66dp">
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="66dp"
+                android:layout_height="66dp"
+                android:src="@mipmap/head" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="258dp"
+                android:layout_height="66dp"
+                android:gravity="center"
+                android:text="消      息"
+                android:textColor="#FFF"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+        </TableRow>
+
+    </TableLayout>
+</LinearLayout>

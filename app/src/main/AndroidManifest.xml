@@ -9,6 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".core.SettingTP"></activity>
+        <activity android:name=".core.MatchingTP" />
+        <activity android:name=".core.MessageTP" />
         <activity android:name=".ClientInfoActivity" />
         <activity android:name=".RegisterActivity" />
         <activity
@@ -23,7 +26,8 @@
         <activity
             android:name=".LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>
