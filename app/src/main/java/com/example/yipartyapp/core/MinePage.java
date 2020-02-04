@@ -11,9 +11,9 @@ import android.view.ViewGroup;
 
 import com.example.yipartyapp.R;
 
-public class SettingTP extends Fragment {
+public class MinePage extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.activity_setting_tp,container,false);
+        View view=inflater.inflate(R.layout.activity_mine_page,container,false);
         return view;
     }
 

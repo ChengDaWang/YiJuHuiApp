@@ -8,18 +8,20 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.example.yipartyapp.core.MatchingTP;
-import com.example.yipartyapp.core.MessageTP;
-import com.example.yipartyapp.core.SettingTP;
+import com.example.yipartyapp.core.MinePage;
+import com.example.yipartyapp.core.RecommendPage;
+import com.example.yipartyapp.core.HomePage;
+import com.example.yipartyapp.core.OrderPage;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
 public class MainActivity extends AppCompatActivity {
 
     private BottomNavigationView bottomNavigationView;
-    private MatchingTP matchingTP;
-    private MessageTP messageTP;
-    private SettingTP settingTP;
+    private RecommendPage recommendPage;
+    private HomePage homePage;
+    private OrderPage orderPage;
+    private MinePage minePage;
     private Fragment[] fragments;
     private int lastfragment;//用于记录上个选择的Fragment
     @Override
@@ -34,12 +36,13 @@ public class MainActivity extends AppCompatActivity {
     private void initFragment()
     {
 
-        matchingTP = new MatchingTP();
-        messageTP = new MessageTP();
-        settingTP = new SettingTP();
-        fragments = new Fragment[]{messageTP,matchingTP,settingTP};
+        recommendPage = new RecommendPage();
+        homePage = new HomePage();
+        orderPage = new OrderPage();
+        minePage = new MinePage();
+        fragments = new Fragment[]{homePage,recommendPage,orderPage,minePage};
         lastfragment=0;
-        getSupportFragmentManager().beginTransaction().replace(R.id.mainview,messageTP).show(messageTP).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.mainview,homePage).show(homePage).commit();
         bottomNavigationView=(BottomNavigationView)findViewById(R.id.bnv);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(changeFragment);
@@ -51,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
             switch (item.getItemId())
             {
-                case R.id.id1://消息
+                case R.id.id1://首页
                 {
                     if(lastfragment!=0)
                     {
@@ -62,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
                     return true;
                 }
-                case R.id.id2://寻找
+                case R.id.id2://推荐
                 {
                     if(lastfragment!=1)
                     {
@@ -73,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
                     return true;
                 }
-                case R.id.id3://设置
+                case R.id.id3://订单
                 {
                     if(lastfragment!=2)
                     {
@@ -83,6 +86,14 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     return true;
+                }
+                case R.id.id4://我的
+                {
+                    if(lastfragment != 3)
+                    {
+                        switchFragment(lastfragment,3);
+                        lastfragment=3;
+                    }
                 }
 
             }

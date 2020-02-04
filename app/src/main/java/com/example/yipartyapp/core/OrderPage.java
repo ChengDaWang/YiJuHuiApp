@@ -11,10 +11,9 @@ import android.view.ViewGroup;
 
 import com.example.yipartyapp.R;
 
-public class MessageTP extends Fragment {
-
+public class OrderPage extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.activity_message_tp,container,false);
+        View view=inflater.inflate(R.layout.activity_setting_tp,container,false);
         return view;
     }
 
