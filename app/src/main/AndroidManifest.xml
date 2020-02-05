@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".core.MinePage"></activity>
+        <activity android:name=".core.MinePage" />
         <activity android:name=".core.OrderPage" />
         <activity android:name=".core.RecommendPage" />
         <activity android:name=".core.HomePage" />

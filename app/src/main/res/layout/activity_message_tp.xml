@@ -135,6 +135,12 @@
             android:gravity="center"
             android:text="酒店预订"
             android:textColor="#111111" />
+
     </LinearLayout>
+
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </LinearLayout>
