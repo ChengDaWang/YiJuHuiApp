@@ -138,9 +138,14 @@
 
     </LinearLayout>
 
-    <ListView
-        android:id="@+id/listview"
+
+       <!-- <include layout="@layout/activity_dongtai" />-->
+
+    <fragment
+        android:id="@+id/fragment"
+        android:name="com.example.yipartyapp.core.dongtaiActivity"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="569dp" />
+
 
 </LinearLayout>

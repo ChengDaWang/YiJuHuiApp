@@ -31,7 +31,11 @@
         <item name="android:backgroundDimEnabled">true</item>
         <!-- 遮罩层 -->
         <item name="android:backgroundDimAmount">0.5</item>
+
     </style>
 
-
+    <style name="PraiseOrCommentAnimationStyle">
+        <item name="android:windowEnterAnimation">@anim/anim_praise_or_comment_in</item>
+        <item name="android:windowExitAnimation">@anim/anim_praise_or_comment_out</item>
+    </style>
 </resources>

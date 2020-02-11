@@ -17,6 +17,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
+
+
     private BottomNavigationView bottomNavigationView;
     private RecommendPage recommendPage;
     private HomePage homePage;
@@ -24,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
     private MinePage minePage;
     private Fragment[] fragments;
     private int lastfragment;//用于记录上个选择的Fragment
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         fragments = new Fragment[]{homePage,recommendPage,orderPage,minePage};
         lastfragment=0;
         getSupportFragmentManager().beginTransaction().replace(R.id.mainview,homePage).show(homePage).commit();
+
         bottomNavigationView=(BottomNavigationView)findViewById(R.id.bnv);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(changeFragment);
@@ -104,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
     //切换Fragment
     private void switchFragment(int lastfragment,int index) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
         transaction.hide(fragments[lastfragment]);//隐藏上个Fragment
         if (fragments[index].isAdded() == false) {
             transaction.add(R.id.mainview, fragments[index]);
@@ -112,4 +118,5 @@ public class MainActivity extends AppCompatActivity {
         }
         transaction.show(fragments[index]).commitAllowingStateLoss();
     }
+
 }

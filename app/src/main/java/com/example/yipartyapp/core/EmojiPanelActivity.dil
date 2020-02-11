@@ -1,0 +1,23 @@
+package com.example.yipartyapp.core;
+
+import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.yipartyapp.R;
+//import com.example.yipartyapp.widgets.EmojiPanelView;
+
+import io.reactivex.annotations.Nullable;
+
+public class EmojiPanelActivity extends AppCompatActivity {
+
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_emoji_panel);
+        EmojiPanelView emojiPanelView = findViewById(R.id.emoji_panel_view);
+        emojiPanelView.initEmojiPanel(DataCenter.emojiDataSources);
+        findViewById(R.id.show).setOnClickListener(v -> emojiPanelView.showEmojiPanel());
+    }
+}
