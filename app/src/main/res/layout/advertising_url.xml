@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- 滑动的页面 -->
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/guide_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></androidx.viewpager.widget.ViewPager>
+
+    <!-- 装点的容器 -->
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="25dp">
+
+        <LinearLayout
+            android:id="@+id/gudie_point_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"></LinearLayout>
+        <!-- 画选中的点 -->
+        <View
+            android:id="@+id/guide_point_selected"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:background="@drawable/point_seleted" />
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -23,4 +23,12 @@
             android:textSize="25dp"
             android:textStyle="bold" />
     </LinearLayout>
+
+    <fragment
+        android:id="@+id/fragment2"
+        android:name="com.example.yipartyapp.core.recommendPage_ui.advertising"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
+
+
 </LinearLayout>

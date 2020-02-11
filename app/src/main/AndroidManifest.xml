@@ -33,6 +33,7 @@
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".core.dongtaiActivity"/>
+        <activity android:name=".core.recommendPage_ui.recommendPage_ui"/>
         <!--<activity android:name=".core.EmojiPanelActivity"/>-->
     </application>
 
