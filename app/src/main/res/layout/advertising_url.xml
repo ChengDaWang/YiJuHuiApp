@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="25dp">
+        android:layout_marginBottom="@dimen/dp_25">
 
         <LinearLayout
             android:id="@+id/gudie_point_container"
@@ -28,8 +28,8 @@
         <!-- 画选中的点 -->
         <View
             android:id="@+id/guide_point_selected"
-            android:layout_width="10dp"
-            android:layout_height="10dp"
+            android:layout_width="@dimen/dp_10"
+            android:layout_height="@dimen/dp_10"
             android:background="@drawable/point_seleted" />
     </RelativeLayout>
 

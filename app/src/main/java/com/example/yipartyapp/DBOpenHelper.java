@@ -4,6 +4,10 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import com.example.yipartyapp.bean.Info;
+import com.example.yipartyapp.bean.headImage;
+
 import java.util.ArrayList;
 public class DBOpenHelper extends SQLiteOpenHelper {
     /**
@@ -32,7 +36,8 @@ public class DBOpenHelper extends SQLiteOpenHelper {
                 " gender TEXT," +
                 " bornData TEXT," +
                 " homeTown TEXT," +
-                " school TEXT)"
+                " school TEXT," +
+                " headImage TEXT)"
                   );
     }
 
@@ -50,10 +55,16 @@ public class DBOpenHelper extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO user (userName,passWord,newUserFlag) VALUES(?,?,?)",new Object[]{userName,passWord,newUserFlag});
     }
     /**
-     * 添加真实姓名
+     * 添加真实姓名,性别等信息
      */
     public void addRealName(String realName,String gender,String bornData,String homeTown,String school){
         db.execSQL("INSERT INTO user (realName,gender,bornData,homeTown,school) VALUES(?,?,?,?,?)",new Object[]{realName,gender,bornData,homeTown,school});
+    }
+    /**
+     * 添加头像
+     */
+    public void addHeadImage(String headImage){
+        db.execSQL("INSERT INTO user (headImage) VALUES(?)",new Object[]{headImage});
     }
     /**
      * 数据库删除数据
@@ -72,10 +83,10 @@ public class DBOpenHelper extends SQLiteOpenHelper {
         db.execSQL("UPDATE user SET newUserFlag = ?",new Object[]{newUserFlag});
     }
     /**
-     * 全库查询数据
+     * 查询用户名和密码以及新老用户标记
+     * 用于登陆
      */
     public ArrayList<User> getAllData(){
-
         ArrayList<User> list = new ArrayList<User>();
         Cursor cursor = db.query("user",null,null,null,null,null,"userName DESC");
         while(cursor.moveToNext()){
@@ -86,5 +97,32 @@ public class DBOpenHelper extends SQLiteOpenHelper {
         }
         return list;
     }
+    /**
+     * 查询学校,姓名
+     * 用于设置
+     */
+   public ArrayList<Info> getInfo(){
+       ArrayList<Info> list=new ArrayList<Info>();
+       Cursor cursor=db.query("user",new String[] { "realName","school" },"_id=2",null,null,null,null);
+       while (cursor.moveToNext()) {
+           String name = cursor.getString(cursor.getColumnIndex("realName"));
+           String school = cursor.getString(cursor.getColumnIndex("school"));
+           list.add(new Info(name,school));
+       }
+       return list;
+   }
+    /**
+     * 查询头像
+     */
+    public ArrayList<headImage> getHeadImage(){
+        ArrayList<headImage> list=new ArrayList<>();
+        Cursor cursor=db.query("user",new String[]{"headImage"},"_id=3",null,null,null,null);
+        while (cursor.moveToNext()){
+            String headImage=cursor.getString(cursor.getColumnIndex("headImage"));
+            list.add(new headImage(headImage));
+        }
+        return list;
+    }
+
 }
 

@@ -41,7 +41,7 @@ public class advertising extends Fragment implements ViewPager.OnPageChangeListe
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.advertising_url, container, false);
-        screenHeight=getScreenHeight(getContext())/3;
+        screenHeight=getScreenHeight(getContext());
         screenWidth=getScreenWidth(getContext());
         mPager = (ViewPager)view.findViewById(R.id.guide_pager);
         mPointContainer = (LinearLayout)view.findViewById(R.id.gudie_point_container);

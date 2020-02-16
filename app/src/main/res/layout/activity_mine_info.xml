@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#75B6B4B4"
+    android:orientation="vertical"
+    tools:context=".core.MinePage_headImage.MineInfoActivity">
+
+
+    <LinearLayout
+        android:id="@+id/li1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:background="@drawable/back_layout_buttom"
+        android:clickable="true"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="@dimen/dp_318"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="left|center"
+            android:text="    更 换 头 像"
+            android:textColor="#070707"
+            android:textSize="@dimen/dp_18" />
+
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_20"
+            android:layout_gravity="right|center"
+            app:srcCompat="@mipmap/to" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:orientation="horizontal"
+        android:background="@drawable/back_layout_buttom">
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="@dimen/dp_318"
+            android:layout_height="match_parent"
+            android:gravity="left|center"
+            android:text="    修 改 学 校"
+            android:layout_weight="1"
+            android:textColor="#070707"
+            android:textSize="@dimen/dp_18" />
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_20"
+            android:layout_gravity="right|center"
+            app:srcCompat="@mipmap/to" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:background="@drawable/back_layout_buttom"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="@dimen/dp_318"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="left|center"
+            android:text="    修 改 昵 称"
+            android:textColor="#070707"
+            android:textSize="@dimen/dp_18" />
+
+        <ImageView
+            android:id="@+id/imageView11"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_20"
+            android:layout_gravity="right|center"
+            app:srcCompat="@mipmap/to" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center|bottom"
+        android:text="亿聚会@Version1.01" />
+
+</LinearLayout>

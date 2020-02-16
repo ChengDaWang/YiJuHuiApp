@@ -18,7 +18,7 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bnv"
         android:layout_width="wrap_content"
-        android:layout_height="250dp"
+        android:layout_height="@dimen/dp_250"
         android:layout_weight="4"
         android:background="#FFC0CB"
         app:labelVisibilityMode="labeled"

@@ -3,18 +3,18 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/base_FFFFFF"
-    android:padding="10dp">
+    android:padding="@dimen/dp_10">
 
     <ImageView
         android:id="@+id/img_avatar"
-        android:layout_width="44dp"
-        android:layout_height="44dp"
+        android:layout_width="@dimen/dp_44"
+        android:layout_height="@dimen/dp_44"
         android:background="@color/base_F2F2F2"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="54dp"
+        android:layout_marginLeft="@dimen/dp_54"
         android:orientation="vertical">
 
         <TextView
@@ -33,29 +33,29 @@
         <LinearLayout
             android:id="@+id/layout_url"
             android:layout_width="match_parent"
-            android:layout_height="54dp"
-            android:layout_marginTop="6dp"
+            android:layout_height="@dimen/dp_54"
+            android:layout_marginTop="@dimen/dp_6"
             android:background="@drawable/selector_view_name_state"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="44dp"
-                android:layout_height="44dp"
-                android:layout_marginLeft="5dp"
+                android:layout_width="@dimen/dp_44"
+                android:layout_height="@dimen/dp_44"
+                android:layout_marginLeft="@dimen/dp_5"
                 />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
+                android:layout_marginLeft="@dimen/dp_8"
                 android:text="一切的问题都是产品问题！"
                 android:textSize="16sp"/>
         </LinearLayout>
 
         <include layout="@layout/include_item_recycler_location"/>
 
-        <include layout="@layout/include_item_recycler_time"/>
+        <include layout="@layout/include_item_recycler_time" />
 
         <include layout="@layout/include_item_recycler_praise_and_comment"/>
 

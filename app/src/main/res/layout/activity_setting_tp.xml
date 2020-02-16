@@ -9,122 +9,21 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="66dp"
+        android:layout_height="@dimen/dp_66"
         android:background="#FFC0CB"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/textView12"
             android:layout_width="match_parent"
-            android:layout_height="66dp"
+            android:layout_height="@dimen/dp_66"
             android:gravity="center"
-            android:text="设   置"
+            android:text="订  单"
             android:textColor="#FFF"
-            android:textSize="25dp"
+            android:textSize="@dimen/dp_25"
             android:textStyle="bold" />
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="match_parent"
-        android:layout_height="36dp"
-        android:background="#A6EEEEEE"/>
-
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="200dp">
-
-            <TextView
-                android:id="@+id/textView10"
-                android:layout_width="389dp"
-                android:layout_height="80dp"
-                android:gravity="fill_vertical"
-                android:text="     修 改 密 码"
-                android:textColor="#0A0A0A"
-                android:textSize="20dp" />
-
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="18dp"
-                android:layout_height="54dp"
-                android:layout_gravity="center"
-                 />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/textView14"
-                android:layout_width="wrap_content"
-                android:layout_height="80dp"
-                android:gravity="fill_vertical"
-                android:text="     匹 配 权 限"
-                android:textColor="#0A0A0A"
-                android:textSize="20dp" />
-
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="18dp"
-                android:layout_height="54dp"
-                android:layout_gravity="center"
-                 />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/textView15"
-                android:layout_width="wrap_content"
-                android:layout_height="80dp"
-                android:gravity="fill_vertical"
-                android:text="     关 于 我 们"
-                android:textColor="#0A0A0A"
-                android:textSize="20dp" />
-
-            <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="18dp"
-                android:layout_height="54dp"
-                android:layout_gravity="center"
-                 />
-        </TableRow>
-
-        <TextView
-            android:id="@+id/textView18"
-            android:layout_width="match_parent"
-            android:layout_height="36dp"
-            android:background="#A6EEEEEE" />
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <Button
-                    android:id="@+id/button6"
-                    android:layout_width="350dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:background="@drawable/corner"
-                    android:text="退 出 登 录"
-                    android:textSize="22dp"/>
-            </LinearLayout>
-        </TableRow>
-    </TableLayout>
-
 
 
 </LinearLayout>

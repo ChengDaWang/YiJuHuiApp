@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="38dp"
+    android:layout_height="@dimen/dp_38"
     android:background="@drawable/shape_praise_or_comment"
     android:orientation="horizontal">
 
@@ -17,7 +17,7 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="20dp"
+            android:layout_width="@dimen/dp_20"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/heart_drawable_white"
             tools:ignore="VectorDrawableCompat" />
@@ -25,7 +25,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="4dp"
+            android:layout_marginLeft="@dimen/dp_4"
             android:text="赞"
             android:textColor="@color/base_FFFFFF"
             android:textSize="14sp" />
@@ -34,8 +34,8 @@
     <View
         android:layout_width="0.5dp"
         android:layout_height="match_parent"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="@dimen/dp_8"
+        android:layout_marginTop="@dimen/dp_8"
         android:background="#000000" />
 
 

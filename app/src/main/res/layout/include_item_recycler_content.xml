@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/selector_view_content_state"
         android:clickable="true"
-        android:lineSpacingExtra="3dp"
+        android:lineSpacingExtra="@dimen/dp_3"
         android:textColor="@color/base_333333"
         android:textSize="16sp"/>
 

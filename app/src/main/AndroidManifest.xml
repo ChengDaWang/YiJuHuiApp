@@ -3,7 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.yipartyapp">
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
     <application
+        android:usesCleartextTraffic="true"
         android:name=".core.FriendsCircleApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,6 +19,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".core.MinePage_headImage.MineInfoActivity"></activity>
         <activity android:name=".core.MinePage" />
         <activity android:name=".core.OrderPage" />
         <activity android:name=".core.RecommendPage" />
@@ -32,9 +41,17 @@
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".core.dongtaiActivity"/>
-        <activity android:name=".core.recommendPage_ui.recommendPage_ui"/>
-        <!--<activity android:name=".core.EmojiPanelActivity"/>-->
+        <activity android:name=".core.dongtaiActivity" />
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.yipartyapp"
+            android:grantUriPermissions="true"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"
+                />
+        </provider>
     </application>
 
 </manifest>

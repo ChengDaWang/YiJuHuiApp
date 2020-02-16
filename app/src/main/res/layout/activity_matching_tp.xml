@@ -9,18 +9,18 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="66dp"
+        android:layout_height="@dimen/dp_66"
         android:background="#FFC0CB"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/textView12"
             android:layout_width="match_parent"
-            android:layout_height="66dp"
+            android:layout_height="@dimen/dp_66"
             android:gravity="center"
             android:text="推   荐"
             android:textColor="#FFF"
-            android:textSize="25dp"
+            android:textSize="@dimen/dp_25"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -28,7 +28,7 @@
         android:id="@+id/fragment2"
         android:name="com.example.yipartyapp.core.recommendPage_ui.advertising"
         android:layout_width="match_parent"
-        android:layout_height="200dp" />
+        android:layout_height="@dimen/dp_200" />
 
 
 </LinearLayout>
