@@ -16,7 +16,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
     private SQLiteDatabase db;
 
     public DBOpenHelper(Context context){
-        super(context,"PartyUser_SQL",null,1);
+        super(context,"PartyUser_SQL",null,2);
         db = getReadableDatabase();
     }
 
@@ -27,6 +27,9 @@ public class DBOpenHelper extends SQLiteOpenHelper {
      * @param db
      */
     public void onCreate(SQLiteDatabase db){
+        /**
+         * 用户信息表
+         */
         db.execSQL("CREATE TABLE IF NOT EXISTS user(" +
                 " _id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 " userName TEXT," +
@@ -39,6 +42,13 @@ public class DBOpenHelper extends SQLiteOpenHelper {
                 " school TEXT," +
                 " headImage TEXT)"
                   );
+        /**
+         * 用户订单信息表
+         */
+        db.execSQL("CREATE TABLE IF NOT EXISTS orderInfo(" +
+                " _no INTEGER PRIMARY KEY AUTOINCREMENT," +
+                " orderName TEXT," +
+                " orderPrice TEXT)");
     }
 
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
@@ -70,6 +80,12 @@ public class DBOpenHelper extends SQLiteOpenHelper {
      */
     public void addHeadImage(String headImage){
         db.execSQL("UPDATE user SET headImage=?",new Object[]{headImage});
+    }
+    /**
+     * 加入订单
+     */
+    public void addOrderDetails(String mName,String mPrice){
+        db.execSQL("INSERT INTO orderInfo (orderName,orderPrice) VALUES(?,?)",new Object[]{mName,mPrice});
     }
     /**
      * 数据库删除数据

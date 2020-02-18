@@ -8,11 +8,8 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.CAMERA" />
-
-    <!-- 允许联网 -->
-    <uses-permission android:name="android.permission.INTERNET" />
-    <!-- 允许查看当前网络状态 -->
+    <uses-permission android:name="android.permission.CAMERA" /> <!-- 允许联网 -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 允许查看当前网络状态 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <uses-feature android:name="android.hardware.camera.autofocus" />
@@ -26,16 +23,28 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".core.MinePage_headImage.AboutVersionActivity" />
-        <activity android:name=".core.MinePage_headImage.UpPasswordActivity" />
-        <activity android:name=".core.MinePage_headImage.SchoolActivity" />
-        <activity android:name=".core.MinePage_headImage.MineInfoActivity" />
-        <activity android:name=".core.MinePage" />
-        <activity android:name=".core.OrderPage" />
+        <activity android:name=".core.recommendPage_ui.MerchantDetlisActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".core.MinePage_headImage.AboutVersionActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".core.MinePage_headImage.UpPasswordActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".core.MinePage_headImage.SchoolActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".core.MinePage_headImage.MineInfoActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".core.MinePage"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".core.OrderPage"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".core.RecommendPage" />
-        <activity android:name=".core.HomePage" />
-        <activity android:name=".ClientInfoActivity" />
-        <activity android:name=".core.recommendPage_ui.MerchantFragment" />
+        <activity android:name=".core.HomePage"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".ClientInfoActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".core.recommendPage_ui.MerchantFragment"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".RegisterActivity"/>
         <activity
             android:name=".WelcomeActivity"
             android:theme="@style/AppTheme.NoActionBar">

@@ -1,5 +1,6 @@
 package com.example.yipartyapp.core.recommendPage_ui;
 
+import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -172,7 +173,12 @@ public class MerchantFragment extends Fragment {
             @Override
             public void onItemClik(View view, int position) {
                 String videoTitle = mList.get(position).getMerchantName();
-                ToastUtils.showToast(videoTitle);
+                //ToastUtils.showToast(videoTitle);
+                Intent detlis=new Intent(getContext(),MerchantDetlisActivity.class);
+                detlis.putExtra("merchantName",mList.get(position).getMerchantName());
+                detlis.putExtra("merchantAdress",mList.get(position).getAdresss());
+                detlis.putExtra("merchantMoney",mList.get(position).getMoney());
+                startActivity(detlis);
             }
 
             // 长按点击事件回调
