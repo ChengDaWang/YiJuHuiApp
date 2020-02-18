@@ -25,7 +25,9 @@ import com.example.yipartyapp.DBOpenHelper;
 import com.example.yipartyapp.R;
 import com.example.yipartyapp.bean.Info;
 import com.example.yipartyapp.bean.headImage;
+import com.example.yipartyapp.core.MinePage_headImage.AboutVersionActivity;
 import com.example.yipartyapp.core.MinePage_headImage.MineInfoActivity;
+import com.example.yipartyapp.core.MinePage_headImage.UpPasswordActivity;
 import com.example.yipartyapp.core.PopupWindow.CommonPopupWindow;
 
 import java.util.ArrayList;
@@ -40,7 +42,7 @@ public class MinePage extends Fragment implements CommonPopupWindow.ViewInterfac
     private DBOpenHelper mDBOpenHelper;
     private TextView textView;//姓名
     private TextView textView1;//学校
-    private ImageView toGo1,headImage1;
+    private ImageView toGo1,headImage1,toGo2,toGo3;
     private CommonPopupWindow commonPopupWindow;
     private ImageView mIcon;
     private String[] permissions = {Manifest.permission.WRITE_EXTERNAL_STORAGE,
@@ -77,6 +79,24 @@ public class MinePage extends Fragment implements CommonPopupWindow.ViewInterfac
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getContext(),MineInfoActivity.class);
+                startActivity(intent);
+            }
+        });
+        //修改密码
+        toGo2=view.findViewById(R.id.imageView6);
+        toGo2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getContext(), UpPasswordActivity.class);
+                startActivity(intent);
+            }
+        });
+        //版本查看
+        toGo3=view.findViewById(R.id.imageView7);
+        toGo3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getContext(), AboutVersionActivity.class);
                 startActivity(intent);
             }
         });

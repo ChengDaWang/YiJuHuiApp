@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#75B6B4B4"
+    android:orientation="vertical"
+    tools:context=".core.MinePage_headImage.AboutVersionActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_66"
+        android:background="#FFC0CB"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_66"
+            android:gravity="center"
+            android:text="版 本 信 息"
+            android:textColor="#FFF"
+            android:textSize="@dimen/dp_25"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_70"
+        android:text="关于《亿聚会》声明"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="#0A0A0A"
+        android:textSize="@dimen/dp_20"/>
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="    《亿聚会》APP,主要用于本人开发者（陈永顺）所有，不参与任何形式商业活动，该软件的功能实现部分源于网络开源项目，本人承诺不会用于任何形式的商业场合，以维护知识产权。本软件仅用于毕业设计作品展示！！！"
+        android:textSize="@dimen/dp_18" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="------------------------------------------------------------------------------------------" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="版 本 信 息："
+        android:textStyle="bold"
+        android:textColor="#0A0A0A"
+        />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="    当前版本1.0(@version1.0)" />
+
+    <TextView
+        android:id="@+id/textView27"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="    数据库版本(@version1.0)" />
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="    安卓主要适配版本（Android@API:28)" />
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="    APP编译环境(Android Studio@3.5 and JDK@1.8)" />
+
+    <TextView
+        android:id="@+id/textView30"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="    核心依赖库(Androidx)" />
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="    其余部分插件以及依赖请查看build.dradle配置文件" />
+
+</LinearLayout>

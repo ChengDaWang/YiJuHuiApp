@@ -16,7 +16,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
     private SQLiteDatabase db;
 
     public DBOpenHelper(Context context){
-        super(context,"PartyUser_SQL",null,2);
+        super(context,"PartyUser_SQL",null,1);
         db = getReadableDatabase();
     }
 
@@ -58,13 +58,18 @@ public class DBOpenHelper extends SQLiteOpenHelper {
      * 添加真实姓名,性别等信息
      */
     public void addRealName(String realName,String gender,String bornData,String homeTown,String school){
-        db.execSQL("INSERT INTO user (realName,gender,bornData,homeTown,school) VALUES(?,?,?,?,?)",new Object[]{realName,gender,bornData,homeTown,school});
+        //db.execSQL("UPDATE user SET(realName,gender,bornData,homeTown,school)",new Object[]{realName,gender,bornData,homeTown,school});
+        db.execSQL("UPDATE user SET realName = ?",new Object[]{realName});
+        db.execSQL("UPDATE user SET gender = ?",new Object[]{gender});
+        db.execSQL("UPDATE user SET bornData = ?",new Object[]{bornData});
+        db.execSQL("UPDATE user SET homeTown = ?",new Object[]{homeTown});
+        db.execSQL("UPDATE user SET school = ?",new Object[]{school});
     }
     /**
      * 添加头像
      */
     public void addHeadImage(String headImage){
-        db.execSQL("INSERT INTO user (headImage) VALUES(?)",new Object[]{headImage});
+        db.execSQL("UPDATE user SET headImage=?",new Object[]{headImage});
     }
     /**
      * 数据库删除数据
@@ -81,6 +86,18 @@ public class DBOpenHelper extends SQLiteOpenHelper {
      */
     public void updata(String newUserFlag){
         db.execSQL("UPDATE user SET newUserFlag = ?",new Object[]{newUserFlag});
+    }
+    /**
+     * 更新学校信息
+     */
+    public void updataschool(String school){
+        db.execSQL("UPDATE user SET school = ?",new Object[]{school});
+    }
+    /**
+     * 更新密码
+     */
+    public void upPassword(String passWord){
+        db.execSQL("UPDATE user SET passWord = ?",new Object[]{passWord});
     }
     /**
      * 查询用户名和密码以及新老用户标记
@@ -103,7 +120,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
      */
    public ArrayList<Info> getInfo(){
        ArrayList<Info> list=new ArrayList<Info>();
-       Cursor cursor=db.query("user",new String[] { "realName","school" },"_id=2",null,null,null,null);
+       Cursor cursor=db.query("user",new String[] { "realName","school" },null,null,null,null,null);
        while (cursor.moveToNext()) {
            String name = cursor.getString(cursor.getColumnIndex("realName"));
            String school = cursor.getString(cursor.getColumnIndex("school"));
@@ -116,7 +133,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
      */
     public ArrayList<headImage> getHeadImage(){
         ArrayList<headImage> list=new ArrayList<>();
-        Cursor cursor=db.query("user",new String[]{"headImage"},"_id=3",null,null,null,null);
+        Cursor cursor=db.query("user",new String[]{"headImage"},null,null,null,null,null);
         while (cursor.moveToNext()){
             String headImage=cursor.getString(cursor.getColumnIndex("headImage"));
             list.add(new headImage(headImage));

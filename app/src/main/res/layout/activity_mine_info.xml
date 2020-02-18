@@ -36,9 +36,12 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/updataschool"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_50"
         android:orientation="horizontal"
+        android:clickable="true"
+        android:onClick="toGo"
         android:background="@drawable/back_layout_buttom">
 
         <TextView
@@ -60,10 +63,13 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/warring"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_50"
         android:background="@drawable/back_layout_buttom"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:clickable="true"
+        android:onClick="tishi">
 
         <TextView
             android:id="@+id/textView11"
@@ -76,11 +82,12 @@
             android:textSize="@dimen/dp_18" />
 
         <ImageView
-            android:id="@+id/imageView11"
+            android:id="@+id/View12"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/dp_20"
             android:layout_gravity="right|center"
-            app:srcCompat="@mipmap/to" />
+            app:srcCompat="@mipmap/to"
+            />
     </LinearLayout>
 
     <TextView

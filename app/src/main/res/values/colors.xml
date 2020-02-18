@@ -15,6 +15,9 @@
     <color name="base_B5B5B5">#B5B5B5</color>
     <color name="base_222230">#222230</color>
     <color name="base_000000">#000000</color>
+    <color name="common_gray">#787676</color>
     <color name="base_3FB838">#3FB838</color>
+    <color name="color_page_bg">#F1F3F4</color>
+    <color name="color_cccccc">#cccccc</color>
     <item name="gray_holo_light" type="color">#ffd0d0d0</item>
 </resources>

@@ -7,6 +7,7 @@ import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -24,6 +25,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -63,6 +65,9 @@ public class MineInfoActivity extends AppCompatActivity implements CommonPopupWi
     private Uri imageUri;
     private Uri cropImageUri;
     private LinearLayout linearLayout1;//更换头像
+    private LinearLayout updataschool;//修改学校
+    private LinearLayout name;//修改昵称
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,6 +83,15 @@ public class MineInfoActivity extends AppCompatActivity implements CommonPopupWi
                 showAll(v);
             }
         });
+
+        updataschool=findViewById(R.id.updataschool);
+        name=findViewById(R.id.warring);
+
+    }
+    public void toGo(View view){
+        Intent intent = new Intent(this, SchoolActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     //全屏弹出
@@ -310,5 +324,9 @@ public class MineInfoActivity extends AppCompatActivity implements CommonPopupWi
                 .circleCrop()//设置圆形
                 .diskCacheStrategy(DiskCacheStrategy.ALL);
         Glide.with(context).load(bitmap).apply(options).into(imageView);
+    }
+
+    public void tishi(View view){
+        Toast.makeText(this, "姓名信息已被锁定，暂不支持修改姓名", Toast.LENGTH_SHORT).show();
     }
 }

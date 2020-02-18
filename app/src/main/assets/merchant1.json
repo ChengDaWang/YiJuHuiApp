@@ -1,0 +1,68 @@
+{
+    "Data": [
+      {
+        "merchantName": "大顺轰趴馆",
+        "adresss": "四川省成都市龙泉驿区",
+        "money": "300.0"
+      },
+      {
+        "merchantName": "金牛一枝花",
+        "adresss": "四川省成都市金牛区",
+        "money": "100.0"
+      },
+      {
+        "merchantName": "朝天门火锅",
+        "adresss": "重庆市渝中区朝天门",
+        "money": "800.0"
+      },{
+        "merchantName": "大世界剧院",
+        "adresss": "四川省泸州市",
+        "money": "500.0"
+      },
+      {
+        "merchantName": "航空人",
+        "adresss": "四川省成都市龙泉驿区",
+        "money": "300.0"
+      },
+      {
+        "merchantName": "航天科技聚会",
+        "adresss": "四川省成都市龙泉驿区",
+        "money": "200.0"
+      },
+      {
+        "merchantName": "情深一把抓",
+        "adresss": "四川省眉山市青神县",
+        "money": "300.0"
+      },
+      {
+        "merchantName": "黑三老妖",
+        "adresss": "四川省泸州市",
+        "money": "80.0"
+      },
+      {
+        "merchantName": "工商一家亲",
+        "adresss": "四川省眉山市",
+        "money": "1500.0"
+      },
+      {
+        "merchantName": "单身俱乐部",
+        "adresss": "四川省成都市龙泉驿区",
+        "money": "120.0"
+      },
+      {
+        "merchantName": "泰式古法大餐",
+        "adresss": "四川省成都市锦江区",
+        "money": "888.8"
+      },
+      {
+        "merchantName": "伯乐洗浴中心",
+        "adresss": "四川省成都市锦江区",
+        "money": "1327.8"
+      },
+      {
+        "merchantName": "红岩KTV",
+        "adresss": "重庆市渝北区",
+        "money": "101.0"
+      }
+    ]
+  }

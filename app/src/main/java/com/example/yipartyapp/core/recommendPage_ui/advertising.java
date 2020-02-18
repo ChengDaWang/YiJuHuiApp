@@ -21,6 +21,9 @@ import com.example.yipartyapp.R;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 广告类展示
+ */
 public class advertising extends Fragment implements ViewPager.OnPageChangeListener {
     private ViewPager mPager;
     private LinearLayout mPointContainer;
@@ -32,9 +35,9 @@ public class advertising extends Fragment implements ViewPager.OnPageChangeListe
     //在studio中引用图片是通过 R.mipmap.guide_1
     //在eclipse中是通过R.drawable.guide_1
     private int[]           imgRes  = new int[] {
-            R.mipmap.login,
-            R.mipmap.error_picture,
-            R.mipmap.lvyou
+            R.mipmap.wuhan,
+            R.mipmap.manba,
+            R.mipmap.jeep
     };
     private int screenHeight;
     private int screenWidth;
