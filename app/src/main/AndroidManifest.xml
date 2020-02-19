@@ -23,28 +23,39 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".core.recommendPage_ui.MerchantDetlisActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".core.MinePage_headImage.AboutVersionActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".core.MinePage_headImage.UpPasswordActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".core.MinePage_headImage.SchoolActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".core.MinePage_headImage.MineInfoActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".core.MinePage"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".core.OrderPage"
-            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".core.OrderPageUI.OrderDetails"></activity>
+        <activity
+            android:name=".core.recommendPage_ui.MerchantDetlisActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".core.MinePage_headImage.AboutVersionActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".core.MinePage_headImage.UpPasswordActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".core.MinePage_headImage.SchoolActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".core.MinePage_headImage.MineInfoActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".core.MinePage"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".core.OrderPage"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".core.RecommendPage" />
-        <activity android:name=".core.HomePage"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".ClientInfoActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".core.recommendPage_ui.MerchantFragment"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".RegisterActivity"/>
+        <activity
+            android:name=".core.HomePage"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ClientInfoActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".core.recommendPage_ui.MerchantFragment"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".RegisterActivity" />
         <activity
             android:name=".WelcomeActivity"
             android:theme="@style/AppTheme.NoActionBar">

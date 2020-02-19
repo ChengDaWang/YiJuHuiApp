@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.yipartyapp.bean.Info;
 import com.example.yipartyapp.bean.headImage;
+import com.example.yipartyapp.bean.order;
 
 import java.util.ArrayList;
 public class DBOpenHelper extends SQLiteOpenHelper {
@@ -157,5 +158,18 @@ public class DBOpenHelper extends SQLiteOpenHelper {
         return list;
     }
 
+    /**
+     * 订单查询
+     */
+    public ArrayList<order> getOrder(){
+        ArrayList<order> list=new ArrayList<>();
+        Cursor cursor=db.query("orderInfo",new String[]{"orderName","orderPrice"},null,null,null,null,null);
+        while (cursor.moveToNext()){
+            String name=cursor.getString(cursor.getColumnIndex("orderName"));
+            String money=cursor.getString(cursor.getColumnIndex("orderPrice"));
+            list.add(new order(name,money));
+        }
+        return list;
+    }
 }
 
