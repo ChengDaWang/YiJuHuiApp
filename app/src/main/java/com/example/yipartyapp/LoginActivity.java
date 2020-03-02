@@ -116,4 +116,10 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+    //忘记密码
+    public void forgetPd(View view){
+        Intent intent=new Intent(this,ForgetPWDActivity.class);
+        startActivity(intent);
+        finish();
+    }
 }

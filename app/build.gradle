@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.mob.sdk'
 
 android {
     compileSdkVersion 28
@@ -28,7 +29,11 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 }
-
+MobSDK {
+    appKey "2e3208f8a2e8a"
+    appSecret "7c8cab4f34195b452aa9bc6033731c17"
+    SMSSDK {}
+}
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     //时间选择器三方依赖
@@ -63,6 +68,5 @@ dependencies {
 
     implementation 'me.drakeet.support:toastcompat:1.1.0'
     implementation 'com.android.support:cardview-v7:28.0.0'
-
 
 }
