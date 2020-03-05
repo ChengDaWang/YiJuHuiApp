@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_100"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView48"
+        android:layout_width="@dimen/dp_200"
+        android:layout_height="46dp"
+        android:text="学生"
+        android:textSize="@dimen/dp_22"
+        android:textColor="#0C0C0C"
+        android:gravity="center|left"
+        android:layout_marginLeft="@dimen/dp_18"/>
+
+    <TextView
+        android:id="@+id/textView49"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="四川大学 | 2016-09-13 — 2019-03-05"
+        android:textSize="@dimen/dp_18"
+        android:gravity="center|left"
+        android:layout_marginLeft="@dimen/dp_18"/>
+
+    <TextView
+        android:id="@+id/textView50"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_18"
+        android:text="四川省成都市锦江区大石西路" />
+</LinearLayout>

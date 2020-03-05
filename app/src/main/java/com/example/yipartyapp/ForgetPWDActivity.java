@@ -171,10 +171,18 @@ public class ForgetPWDActivity extends AppCompatActivity {
     }
 
     public void play(View view) {
-        timer.schedule(task, 1000, 1000);
         phone=phoneInput.getText().toString().trim();
-        //获取验证码
-        SMSSDK.getVerificationCode("86",phone);
+        newpassword=newPWInput.getText().toString().trim();
+        surepassword=surePWInput.getText().toString().trim();
+        if(!TextUtils.isEmpty(phone) && !TextUtils.isEmpty(newpassword) &&
+        !TextUtils.isEmpty(surepassword) && newpassword.equals(surepassword)) {
+            timer.schedule(task, 1000, 1000);
+            phone = phoneInput.getText().toString().trim();
+            //获取验证码
+            SMSSDK.getVerificationCode("86", phone);
+        }else {
+            Toast.makeText(ForgetPWDActivity.this,"信息输入不完整或者前后密码不一致！",Toast.LENGTH_SHORT).show();
+        }
     }
 
     /**

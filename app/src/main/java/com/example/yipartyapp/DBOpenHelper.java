@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.example.yipartyapp.bean.ID;
 import com.example.yipartyapp.bean.Info;
 import com.example.yipartyapp.bean.headImage;
 import com.example.yipartyapp.bean.order;
@@ -50,6 +51,16 @@ public class DBOpenHelper extends SQLiteOpenHelper {
                 " _no INTEGER PRIMARY KEY AUTOINCREMENT," +
                 " orderName TEXT," +
                 " orderPrice TEXT)");
+        /**
+         * 身份管理信息表
+         */
+        db.execSQL("CREATE TABLE IF NOT EXISTS idMannger(" +
+                "_no INTEGER PRIMARY KEY AUTOINCREMENT," +
+                " school TEXT," +
+                " adress TEXT," +
+                " beginData TEXT," +
+                " endData TEXT," +
+                " job TEXT)");
     }
 
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
@@ -64,6 +75,12 @@ public class DBOpenHelper extends SQLiteOpenHelper {
      */
     public void add(String userName, String passWord,String newUserFlag){
         db.execSQL("INSERT INTO user (userName,passWord,newUserFlag) VALUES(?,?,?)",new Object[]{userName,passWord,newUserFlag});
+    }
+    /**
+     * 插入身份管理信息
+     */
+    public void addID(String school,String adress,String beginData,String endData,String job){
+        db.execSQL("INSERT INTO idMannger (school,adress,beginData,endData,job) VALUES(?,?,?,?,?)",new Object[]{school,adress,beginData,endData,job});
     }
     /**
      * 添加真实姓名,性别等信息
@@ -168,6 +185,22 @@ public class DBOpenHelper extends SQLiteOpenHelper {
             String name=cursor.getString(cursor.getColumnIndex("orderName"));
             String money=cursor.getString(cursor.getColumnIndex("orderPrice"));
             list.add(new order(name,money));
+        }
+        return list;
+    }
+    /**
+     * 身份管理信息查询
+     */
+    public ArrayList<ID> getID(){
+        ArrayList<ID> list=new ArrayList<>();
+        Cursor cursor=db.query("idMannger",new String[]{"school","adress","beginData","endData","job"},null,null,null,null,null);
+        while (cursor.moveToNext()){
+            String school=cursor.getString(cursor.getColumnIndex("school"));
+            String adress=cursor.getString(cursor.getColumnIndex("adress"));
+            String beginData=cursor.getString(cursor.getColumnIndex("beginData"));
+            String endData=cursor.getString(cursor.getColumnIndex("endData"));
+            String job=cursor.getString(cursor.getColumnIndex("job"));
+            list.add(new ID(school,adress,beginData,endData,job));
         }
         return list;
     }

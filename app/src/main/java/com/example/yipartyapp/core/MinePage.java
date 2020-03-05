@@ -26,6 +26,7 @@ import com.example.yipartyapp.R;
 import com.example.yipartyapp.bean.Info;
 import com.example.yipartyapp.bean.headImage;
 import com.example.yipartyapp.core.MinePage_headImage.AboutVersionActivity;
+import com.example.yipartyapp.core.MinePage_headImage.IdentityActivity;
 import com.example.yipartyapp.core.MinePage_headImage.MineInfoActivity;
 import com.example.yipartyapp.core.MinePage_headImage.UpPasswordActivity;
 import com.example.yipartyapp.core.PopupWindow.CommonPopupWindow;
@@ -42,7 +43,7 @@ public class MinePage extends Fragment implements CommonPopupWindow.ViewInterfac
     private DBOpenHelper mDBOpenHelper;
     private TextView textView;//姓名
     private TextView textView1;//学校
-    private ImageView toGo1,headImage1,toGo2,toGo3;
+    private ImageView toGo1,headImage1,toGo2,toGo3,toGo4;
     private CommonPopupWindow commonPopupWindow;
     private ImageView mIcon;
     private String[] permissions = {Manifest.permission.WRITE_EXTERNAL_STORAGE,
@@ -97,6 +98,15 @@ public class MinePage extends Fragment implements CommonPopupWindow.ViewInterfac
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getContext(), AboutVersionActivity.class);
+                startActivity(intent);
+            }
+        });
+        //身份管理
+        toGo4=view.findViewById(R.id.imageView8);
+        toGo4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getContext(), IdentityActivity.class);
                 startActivity(intent);
             }
         });

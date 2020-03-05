@@ -24,7 +24,12 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ForgetPWDActivity"></activity>
+        <activity android:name=".core.MinePage_headImage.IdCompileActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".core.MinePage_headImage.IdentityActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ForgetPWDActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".core.OrderPageUI.OrderDetails" />
         <activity
             android:name=".core.recommendPage_ui.MerchantDetlisActivity"
